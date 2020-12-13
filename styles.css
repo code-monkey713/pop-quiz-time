@@ -1,0 +1,11 @@
+.wrapper {
+  border-style: solid;
+  border-color: darkseagreen;
+  height: 650px;
+}
+
+.tally {
+  /*border-style: solid;*/
+  border-bottom: firebrick;
+  /*border-color: gold;*/
+}
