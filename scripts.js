@@ -1,6 +1,37 @@
 var startBtn = document.querySelector('.startBtn');
+var timeEl = document.querySelector('.timer');
+var mainEl = document.getElementById('.startParagraph');
 
 function popQuiz() {
+
+var secondsLeft = 5;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = 'Time: ' + secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
+
+function sendMessage() {
+  //timeEl.textContent = " ";
+
+  //var imgEl = document.createElement("img");
+
+  // imgEl.setAttribute("src", "images/pexels-lukas-628241.jpg");
+  // mainEl.appendChild(imgEl);
+  mainEl.appendChild("This is the end of the test!");
+  alert('This is the end of the test!');
+}
+
+setTime();
+
   // The array of questions for our quiz game.
   var questions = [
     { q: "The sky is blue.", a: "t" },
@@ -23,10 +54,10 @@ function popQuiz() {
       (answer === false && questions[i].a === "f")) {
       // Increase score
       score++;
-      alert("Correct!");
+      // alert("Correct!");
     }
     else {
-      alert("Wrong!");
+      // alert("Wrong!");
     }
 
     // Show total at end
