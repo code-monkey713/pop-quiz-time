@@ -1,22 +1,56 @@
-var startBtn = document.querySelector('.startBtn');
+var startBtn;
+var highScoreEL = document.querySelector('.highScore');
 var timeEl = document.querySelector('.timer');
 var mainEl = document.querySelector('.stagingArea');
 
+
+function initialState() {
+  //secondsLeft = 2;
+  const a = document.createElement('a');
+  a.setAttribute('href', '#');
+  const span = document.createElement('span');
+  span.setAttribute('class', '');
+  a.appendChild(span);
+  a.innerHTML += 'View High Score';
+  document.getElementById('highScore').appendChild(a);
+
+  mainEl.textContent += 'Click on the button to start the quiz!';
+
+  // This is to add the line break after the text
+  const paragraph = document.createElement('p');
+  mainEl.appendChild(paragraph);
+
+  // This is to create the button to start the 
+  const button = document.createElement('button');
+  const textBtn = document.createTextNode('Start the quiz!');
+  button.setAttribute('class', 'btn btn-primary startBtn');
+  button.appendChild(textBtn);
+  mainEl.appendChild(button);
+  startBtn = button;
+}
+
+initialState(); 
+
 function popQuiz() {
 
-var secondsLeft = 5;
-
-function setTime() {
+  var secondsLeft = 2;
+  function setTime() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timeEl.textContent = 'Time: ' + secondsLeft;
     console.log(secondsLeft);
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
+      //clearInterval(secondsLeft);
+      timeEl.textContent = '';
       sendMessage();
     }
-
   }, 1000);
+}
+
+function clearContent() {
+  mainEl.textContent = '';
+  highScoreEL.textContent = '';
 }
 
 function sendMessage() {
@@ -26,10 +60,13 @@ function sendMessage() {
 
   // imgEl.setAttribute("src", "images/pexels-lukas-628241.jpg");
   // mainEl.appendChild(imgEl);
+  
   var paraEl = document.createElement('p');
   paraEl.textContent = "This is the end of the test!";
   mainEl.appendChild(paraEl);
-  //alert('This is the end of the test!');
+  
+  clearContent();
+  initialState();
 }
 
 setTime();
