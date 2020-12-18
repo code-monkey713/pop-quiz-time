@@ -33,20 +33,21 @@ initialState();
 
 function popQuiz() {
 
-  var secondsLeft = 2;
+  var secondsLeft = 3;
+
   function setTime() {
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timeEl.textContent = 'Time: ' + secondsLeft;
-    console.log(secondsLeft);
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      //clearInterval(secondsLeft);
-      timeEl.textContent = '';
-      sendMessage();
-    }
-  }, 1000);
-}
+    var timerInterval = setInterval(function () {
+      secondsLeft--;
+      timeEl.textContent = 'Time: ' + secondsLeft;
+      //console.log(secondsLeft);
+      if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+        //clearInterval(secondsLeft);
+        timeEl.textContent = '';
+        sendMessage();
+      }
+    }, 1000);
+  }
 
 function clearContent() {
   mainEl.textContent = '';
@@ -65,11 +66,15 @@ function sendMessage() {
   paraEl.textContent = "This is the end of the test!";
   mainEl.appendChild(paraEl);
   
-  clearContent();
+  
   initialState();
+  //clearContent();
 }
 
 setTime();
+clearContent();
+
+
 
   // // The array of questions for our quiz game.
   // var questions = [
