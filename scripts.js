@@ -1,18 +1,28 @@
 var startBtn;
+var highScoreBtn;
 var highScoreEL = document.querySelector('.highScore');
 var timeEl = document.querySelector('.timer');
-var mainEl = document.querySelector('.stagingArea');
+//var mainEl = document.querySelector('.stagingArea');
+var mainEl = document.getElementById('staging');
+console.log(mainEl.innerHTML);
 
 
 function initialState() {
+
+  const scoreBtn = document.createElement('button');
+  const textScoreBtn = document.createTextNode('View High Scores');
+  //button.setAttribute('class', 'btn btn-primary startBtn');
+  scoreBtn.appendChild(textScoreBtn);
+  highScoreEL.appendChild(scoreBtn);
+  highScoreBtn = scoreBtn;
   //secondsLeft = 2;
-  const a = document.createElement('a');
-  a.setAttribute('href', '#');
-  const span = document.createElement('span');
-  span.setAttribute('class', '');
-  a.appendChild(span);
-  a.innerHTML += 'View High Score';
-  document.getElementById('highScore').appendChild(a);
+  // const a = document.createElement('a');
+  // a.setAttribute('href', '#');
+  // const span = document.createElement('span');
+  // span.setAttribute('class', '');
+  // a.appendChild(span);
+  // a.innerHTML += 'View High Score';
+  // document.getElementById('highScore').appendChild(a);
 
   mainEl.textContent += 'Click on the button to start the quiz!';
 
@@ -33,25 +43,36 @@ initialState();
 
 function popQuiz() {
 
-  var secondsLeft = 3;
-
+  function question () {
+    console.log('This is the question function!');
+    
+    const questionEl = document.createElement('p');
+    questionEl.textContent = "Question number one!";
+    //mainEl.appendChild(questionEl);
+    mainEl.innerHTML = questionEl.textContent;
+  }
+  
   function setTime() {
-    var timerInterval = setInterval(function () {
+    let secondsLeft = 30;
+    let timerInterval = setInterval(function () {
       secondsLeft--;
       timeEl.textContent = 'Time: ' + secondsLeft;
       //console.log(secondsLeft);
       if (secondsLeft === 0) {
-        clearInterval(timerInterval);
+        clearInterval(secondsLeft);
         //clearInterval(secondsLeft);
         timeEl.textContent = '';
-        sendMessage();
+        //sendMessage();
       }
     }, 1000);
   }
 
+  question();
+
 function clearContent() {
   mainEl.textContent = '';
-  highScoreEL.textContent = '';
+  // need a way to hide the high score area after the start quiz button is pressed and the div will not resize
+  // highScoreEL.textContent = '';
 }
 
 function sendMessage() {
@@ -61,7 +82,7 @@ function sendMessage() {
 
   // imgEl.setAttribute("src", "images/pexels-lukas-628241.jpg");
   // mainEl.appendChild(imgEl);
-  
+  clearContent();
   var paraEl = document.createElement('p');
   paraEl.textContent = "This is the end of the test!";
   mainEl.appendChild(paraEl);
