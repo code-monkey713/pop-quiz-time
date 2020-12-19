@@ -1,22 +1,22 @@
 var quizQuestions = [
   {
     question: 'This is question 1',
-    answers: ['answer one', 'answer two', 'answer three', 'answer four'],
+    answers: ['answer one one', 'answer two', 'answer three', 'answer four'],
     correct: 'answer two'
   },
   {
     question: 'This is question 2',
-    answers: ['answer one', 'answer two', 'answer three', 'answer four'],
+    answers: ['answer two one', 'answer two', 'answer three', 'answer four'],
     correct: 'answer three'
   },
   {
     question: 'This is question 3',
-    answers: ['answer one', 'answer two', 'answer three', 'answer four'],
+    answers: ['answer three one', 'answer two', 'answer three', 'answer four'],
     correct: 'answer four'
   },
   {
     question: 'This is question 4',
-    answers: ['answer one', 'answer two', 'answer three', 'answer four'],
+    answers: ['answer four one', 'answer two', 'answer three', 'answer four'],
     correct: 'answer one'
   },
   {
@@ -26,12 +26,12 @@ var quizQuestions = [
   },
   {
     question: 'This is question 6',
-    answers: ['answer one', 'answer two', 'answer three', 'answer four'],
+    answers: ['answer six one', 'answer two', 'answer three', 'answer four'],
     correct: 'answer two'
   },
   {
     question: 'This is question 7',
-    answers: ['answer one', 'answer two', 'answer three', 'answer four'],
+    answers: ['answer seven one', 'answer two', 'answer three', 'answer four'],
     correct: 'answer one'
   },
   {
@@ -41,13 +41,13 @@ var quizQuestions = [
   },
   {
     question: 'This is question 9',
-    answers: ['answer one', 'answer two', 'answer three', 'answer four'],
-    correct: 'answer one'
+    answers: ['answer nine one', 'answer nine two', 'answer three', 'answer four'],
+    correct: 'answer nine two'
   },
   {
     question: 'This is question 10',
-    answers: ['answer one', 'answer two', 'answer three', 'answer four'],
-    correct: 'answer one'
+    answers: ['answer ten one', 'answer two', 'answer three', 'answer four'],
+    correct: 'answer ten one'
   },
   ]
 

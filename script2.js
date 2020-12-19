@@ -4,6 +4,9 @@ let gameTimerEl = document.getElementById('timer');
 //console.log(timer);
 let mainEl = document.getElementById('stage');
 //console.log(timer);
+var quiz = {};
+var score;
+var scoreTable; 
 
 initialState(); 
 
@@ -52,10 +55,45 @@ function setTimer() {
 }
 
 function setQuestions () {
+
+//   let curQuestion = quiz.pop();
+
+//   let question = document.createElement("h1");
+//   question.setAttribute("question", curQuestion.title);
+//   question.textContent = curQuestion.title;
+//   mainEl.appendChild(question)
+
+//   // create list as container to listen for answers
+//   let choiceBox = document.createElement("ul");
+//   choiceBox.setAttribute("id", "choiceBox");
+//   mainEl.appendChild(choiceBox);
+
+//   //adds answers to screen
+//   for (let i = 0; i < curQuestion.choices.length; i++) {
+//     // creates variable for each choice item
+//     let listChoice = document.createElement("li");
+//     // adds data value
+//     listChoice.setAttribute("choice-value", curQuestion.choices[i]);
+//     listChoice.setAttribute("id", "questionNum-" + i);
+//     listChoice.textContent = curQuestion.choices[i];
+//     //add choice to page
+//     choiceBox.appendChild(listChoice)
+//   }
+
+//   if (test) { console.log("cur", curQuestion); }
+
+//   // get answer from user
+//   // using the anymous function delays the invocation of the scoreAnswer
+//   choiceBox.addEventListener("click", function () {
+//     scoreAnswer(curQuestion);
+//   });
+//   // calls for the next questions
+// }
+
   // console.log('This is setting the questions.');
   const question = document.createElement('h1');
   //question = textContent('This is question 1!');
-  const text = document.createTextNode('This is question 1!');
+  const text = document.createTextNode(quizQuestions['question']);
   mainEl.appendChild(text);
 
   const lineOne = document.createElement('p');
@@ -93,12 +131,14 @@ function setQuestions () {
   //answer1Btn = setAttribute('id', 'answer1');
   answer4Btn.appendChild(answer4Text);
   mainEl.appendChild(answer4Btn);
-}
+  }
 
 function popQuiz() {
   clearContent();
   //setTimer();
+  //quiz = setUpQuestions(questionSet);
   setQuestions();
+  
 }
 
 startBtn.addEventListener('click', popQuiz);
