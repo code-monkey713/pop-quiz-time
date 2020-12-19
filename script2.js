@@ -54,6 +54,7 @@ function setTimer() {
 function setQuestions () {
   // console.log('This is setting the questions.');
   const question = document.createElement('h1');
+  //question = textContent('This is question 1!');
   const text = document.createTextNode('This is question 1!');
   mainEl.appendChild(text);
 
