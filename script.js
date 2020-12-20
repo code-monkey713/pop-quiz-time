@@ -1,67 +1,130 @@
+// (function () {
 const instruct = document.getElementById('instruction');
-const start = document.getElementById('startIns');
 const pageOne = document.getElementById('page-1');
 const pageTwo = document.getElementById('page-2');
 const pageThree = document.getElementById('page-3');
 const pageFour = document.getElementById('page-4');
 const pageFive = document.getElementById('page-5');
 const pageEnd = document.getElementById('page-end');
-//const textProgress = document.getElementById(textContent('textStatus'));
-//console.log(textProgress);
-const buttonTwo = document.getElementById('btnQuest2');
-const buttonThree = document.getElementById('btnQuest3');
-const buttonFour = document.getElementById('qbtnQuest4');
-const buttonFive = document.getElementById('btnQuest5');
-const buttonEnd = document.getElementById('btnOver');
-const nameEl = document.getElementById('initials');
-const highScoreEl = document.getElementById('highScore');
-let highList = [];
+const textProgress = document.getElementById('textStatus');
+// console.log(textProgress);
+// const buttonTwo = document.getElementById('btnQuest2');
+// const buttonThree = document.getElementById('btnQuest3');
+// const buttonFour = document.getElementById('qbtnQuest4');
+// const buttonFive = document.getElementById('btnQuest5');
+// const buttonEnd = document.getElementById('btnOver');
+// const nameEl = document.getElementById('initials');
+// const highScoreEl = document.getElementById('highScore');
+// let highList = [];
 let score;
-// const emailEl = document.getElementById('email');
-const animals = document.querySelectorAll('[name=animal]');
-const formProgress = document.getElementById('form-progress');
-const favoriteAnimals = ['cat', 'dog', 'meerkat', 'answer1-4'];
+// // const emailEl = document.getElementById('email');
+// const animals = document.querySelectorAll('[name=animal]');
+const formProgress = document.getElementById('progressBar');
+// const favoriteAnimals = ['cat', 'dog', 'meerkat', 'answer1-4'];
 
-const fave = document.getElementById('highScore');
-if (favoriteAnimals.includes(fave.textContent.toLowerCase())) {
-  console.log('The favorite animal is allowed');
-}
-const buttonStart = document.getElementById('start');
-buttonStart.addEventListener('click', function (event) {
-  event.preventDefault();
-  if(buttonStart.value === 'start') {
-    console.log('This is start of quiz!');
-    start.classList.add('d-none');
-    pageOne.classList.remove('d-none');
-    buttonStart.classList.add('d-none');
-    console.log(buttonTwo);
-    buttonTwo.classList.remove('d-none');
-    // buttonStart.value = 'question1';
-    buttonStart.textContent = 'Submit';
-    // textProgress.textContent.value = 'Part 1 of 5';
-    formProgress.setAttribute('style', 'width:20%');
-    formProgress.setAttribute('aria-valuenow', '20');
-    //debugger;
+// const fave = document.getElementById('highScore');
+// if (favoriteAnimals.includes(fave.textContent.toLowerCase())) {
+//   console.log('The favorite animal is allowed');
+// }
+// const buttonStart = document.getElementById('start');
+// buttonStart.addEventListener('click', function (event) {
+//   event.preventDefault();
+//   if(buttonStart.value === 'start') {
+//     console.log('This is start of quiz!');
+//     start.classList.add('d-none');
+//     pageOne.classList.remove('d-none');
+//     buttonStart.classList.add('d-none');
+
+
+//     // buttonStart.value = 'question1';
+//     buttonStart.textContent = 'Submit';
+//     textProgress.textContent.value = 'Part 1 of 5';
+//     formProgress.setAttribute('style', 'width:20%');
+//     formProgress.setAttribute('aria-valuenow', '20');
+//     //debugger;
     
-    const favoriteAnimal = document.querySelector("[name=animal]:checked");
-    localStorage.setItem('favoriteAnimal', favoriteAnimal.value);
-    // const cardBody = document.querySelector('.card-body');
-    // cardBody.innerHTML = 'You are correct';
-  }});
+//     const favoriteAnimal = document.querySelector("[name=animal]:checked");
+//     localStorage.setItem('favoriteAnimal', favoriteAnimal.value);
+//     // const cardBody = document.querySelector('.card-body');
+//     // cardBody.innerHTML = 'You are correct';
+//   }});
 
-const buttonQuest1 = document.getElementById('question2');
-buttonQuest1.addEventListener('click', function (event) {
+  // Variables
+  // const quizContainer = document.getElementById('quiz');
+  // const resultsContainer = document.getElementById('results');
+  // const submitButton = document.getElementById('submit');
+  // const myQuestions = [
+  //   {
+  //     question: "Which editor is the most used?",
+  //     answers: {
+  //       a: "Visual Studio Code",
+  //       b: "Notepad++",
+  //       c: "Android Studio",
+  //       d: "Xcode"
+  //     },
+  //     correctAnswer: "a"
+  //   },
+  //   {
+  //     question: "Coding is fun!",
+  //     answers: {
+  //       a: "True",
+  //       b: "False"
+  //     },
+  //     correctAnswer: "a"
+  //   },
+  //   {
+  //     question: "What are the main building blocks of web development?",
+  //     answers: {
+  //       a: "HTML",
+  //       b: "Javascript",
+  //       c: "CSS",
+  //       d: "All of the above"
+  //     },
+  //     correctAnswer: "d"
+  //   },
+  //   {
+  //     question: "What is not true about template literals?",
+  //     answers: {
+  //       a: "String literals",
+  //       b: "Can use multi-line strings",
+  //       c: "Template literals can contain placeholders",
+  //       d: "Template literals are enclosed by the brackets []"
+  //     },
+  //     correctAnswer: "d"
+  //   }
+  // ];
+
+const callStart = document.getElementById('start');
+callStart.onclick = () => {
   event.preventDefault();
-  if (buttonStart.value === 'question1') {
-    console.log('This is question 2');
-    pageOne.classList.add('d-none');
-    pageTwo.classList.remove('d-none');
-    buttonStart.value = 'question2';
-    formProgress.setAttribute('style', 'width:40%');
-    formProgress.setAttribute('aria-valuenow', '40');
-    debugger;
-  }
-});
+  console.log('Clicked on start');
+  instruct.classList.add('d-none');
+  pageOne.classList.remove('d-none');
+  formProgress.setAttribute('style', 'width:20%');
+  formProgress.setAttribute('aria-valuenow', '20');
+}
+
+const quest1 = document.getElementById('question1');
+quest1.onclick = () => {
+  event.preventDefault();
+  console.log('You answered question 1');
+  pageOne.classList.add('d-none');
+  pageTwo.classList.remove('d-none');
+  formProgress.setAttribute('style', 'width:40%');
+  formProgress.setAttribute('aria-valuenow', '40');
+}
+
+// buttonQuest1.addEventListener('click', function (event) {
+//   event.preventDefault();
+//   if (buttonStart.value === 'question1') {
+//     console.log('This is question 2');
+//     pageOne.classList.add('d-none');
+//     pageTwo.classList.remove('d-none');
+//     formProgress.setAttribute('style', 'width:40%');
+//     formProgress.setAttribute('aria-valuenow', '40');
+
+//   }
+// });
   // } else {
   //   
   // if(buttonStart.value === 'question1') {
@@ -186,3 +249,4 @@ buttonQuest1.addEventListener('click', function (event) {
 //   } else {
 //     location.reload();
 //   }
+// })

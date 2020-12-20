@@ -18,7 +18,7 @@
         <div id="highScore" class="d-none">High Scores</div>
         <h2 id="textStatus"></h2>
         <div class="progress">
-          <div id="form-progress" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"
+          <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"
             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
           </div>
         </div> <!-- progress closing -->
@@ -30,80 +30,77 @@
             </div>
             <div class="card-body">
               <div id="instruction">
-                <div class="form-row" id="startIns">
+                <div class="form-row quiz-container" id="startIns">
+                  <div id="quiz">
                   <p>You will have 75 seconds to answer 5 questions about web development including HTML, CSS, and
                     Javascript. If you answer any of the questions wrong, 10 seconds will be deducted from your timer.
                     The game will end when you run out of time or answered all the questions.</p>
                   <p>
                     Click on the 'Start the quiz!' button to start the quiz.
                   </p>
+                </div> <!-- closing id=quiz div -->
+                </div> <!-- closing id=startIns div -->
+                <div class="card-footer text-center" id="btnStart">
+                  <button value="start" id="start" class="btn btn-outline-primary">Start the quiz!</button>
                 </div>
+              </div> <!-- closing id=instruction div -->
 
-                <div id="page-1" class="d-none">
-                  <h3>Question 1</h3>
+              <div id="page-1" class="d-none">
+                <div>
+                  <h3>Who invented CSS?</h3>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="cat" value="cat">
-                    <label class="form-check-label" for="cat">Answer 1</label>
+                    <input class="form-check-input" type="radio" name="answer1-1" id="answer1-1" value="answer1-1">
+                    <label class="form-check-label" for="answer1-1">Bill Gates</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="animal" id="dog" value="dog">
-                    <label class="form-check-label" for="dog">Answer 2</label>
+                    <label class="form-check-label" for="answer1-2">Sheryl Sandberg</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="animal" id="meerkat" value="meerkat">
-                    <label class="form-check-label" for="meerkat">Answer 3</label>
+                    <label class="form-check-label" for="answer1-3">Brendan Eich</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="animal" id="answer1-4" value="answer1-4">
-                    <label class="form-check-label" for="answer1-4">Answer 4</label>
+                    <label class="form-check-label" for="answer1-4">Håkon Wium Lie</label>
                     <p></p>
                   </div>
                 </div>
+              </div>
+              <div class="card-footer text-center d-none" id="question1">
+                <button value="question2" id="" class="btn btn-outline-primary">Submit</button>
+              </div>
+            </div><!-- closing id=page-1 -->
 
-                <div id="page-2" class="d-none">
-                  <h3>Question 2</h3>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="cat" value="cat" checked>
-                    <label class="form-check-label" for="cat">Answer 1</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="dog" value="dog">
-                    <label class="form-check-label" for="dog">Answer 2</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="meerkat" value="meerkat">
-                    <label class="form-check-label" for="meerkat">Answer 3</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="answer2-4" value="answer2-4">
-                    <label class="form-check-label" for="meerkat">Answer 4</label>
-                    <p></p>
-                  </div>
+            <div id="page-2" class="d-none">
+              <div>
+                <h3>Which editor is the most used?</h3>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="animal" id="cat" value="cat" checked>
+                  <label class="form-check-label" for="cat">Answer 1</label>
                 </div>
-
-                <div id="page-3" class="d-none">
-                  <h3>Question 3</h3>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="cat" value="cat" checked>
-                    <label class="form-check-label" for="cat">Answer 1</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="dog" value="dog">
-                    <label class="form-check-label" for="dog">Answer 2</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="meerkat" value="meerkat">
-                    <label class="form-check-label" for="meerkat">Answer 3</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="animal" id="answer2-4" value="answer2-4">
-                    <label class="form-check-label" for="meerkat">Answer 4</label>
-                    <p></p>
-                  </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="animal" id="dog" value="dog">
+                  <label class="form-check-label" for="dog">Answer 2</label>
                 </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="animal" id="meerkat" value="meerkat">
+                  <label class="form-check-label" for="meerkat">Answer 3</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="animal" id="answer2-4" value="answer2-4">
+                  <label class="form-check-label" for="meerkat">Answer 4</label>
+                  <p></p>
+                </div>
+              </div>
+              <div class="card-footer text-center d-none" id="question2">
+                <button value="question3" class="btn btn-outline-primary">Submit</button>
+              </div>
+            </div> <!-- closing id=page-2 -->
 
-                <div id="page-4" class="d-none">
-                  <h3>Question 4</h3>
+            <div id="page-3" class="d-none">
+                <div>
+                  <h3>Coding is fun!</h3>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="animal" id="cat" value="cat" checked>
                     <label class="form-check-label" for="cat">True</label>
@@ -114,7 +111,36 @@
                     <p></p>
                   </div>
                 </div>
+                <div class="card-footer text-center d-none" id="question3">
+                  <button value="question3" id="" class="btn btn-outline-primary">Submit</button>
+                </div>
+              </div>
+          </div>
 
+            <div id="page-4" class="d-none">
+                <div>
+                  <h3>What are the main building blocks of web development?</h3>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animal" id="cat" value="cat" checked>
+                    <label class="form-check-label" for="cat">HTML</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animal" id="dog" value="dog">
+                    <label class="form-check-label" for="dog">Javascript</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animal" id="dog" value="dog">
+                    <label class="form-check-label" for="dog">CSS</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animal" id="dog" value="dog">
+                    <label class="form-check-label" for="dog">All of the above</label>
+                    <p></p>
+                  </div>
+                </div>
+                <div class="card-footer text-center d-none" id="question4">
+                  <button value="question4" id="" class="btn btn-outline-primary">Submit</button>
+                </div>
+              </div>
+              </div>
                 <div id="page-5" class="d-none">
                   <h3>Question 5</h3>
                   <div class="form-check">
@@ -151,28 +177,20 @@
                 </div>
 
               </div>
-              <div class="card-footer text-center" id="btnStart">
-                <button value="start" id="start" class="btn btn-outline-primary">Start the quiz!</button>
-              </div>
-              <div class="card-footer text-center d-none" id="btnQuest2">
-                <button value="question2" id="question2" class="btn btn-outline-primary">Submit</button>
-              </div>
-              <div class="card-footer text-center d-none" id="btnQuest3">
-                <button value="question3" id="question3" class="btn btn-outline-primary">Submit</button>
-              </div>
-              <div class="card-footer text-center d-none" id="btnQuest4">
-                <button value="question4" id="question4" class="btn btn-outline-primary">Submit</button>
-              </div>
-              <div class="card-footer text-center d-none" id="btnQuest5">
-                <button value="question5" id="question5" class="btn btn-outline-primary">Submit</button>
-              </div>
+              
+              <div id="quizButtons" class="d-none">
+                  <button id="next">Submit</button>
+                  <button id="submit" class="d-none">Submit Quiz</button>
+                </div>
+              
+              
+              
               <div class="card-footer text-center d-none" id="btnOver">
                 <button value="question5" id="question5" class="btn btn-outline-primary">Submit</button>
               </div>
             </div>
         </form>
       </div>
-    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
