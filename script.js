@@ -12,7 +12,7 @@ const quest3Btn = document.getElementById('question3');
 const quest4Btn = document.getElementById('question4');
 const quest5Btn = document.getElementById('question5');
 const startOver = document.getElementById('btnOver');
-let score;
+let score = 0;
 const formProgress = document.getElementById('progressBar');
 
 const nameEl = document.getElementById('initials');
@@ -28,7 +28,6 @@ const highScoreEl = document.getElementById('highScore');
 const callStart = document.getElementById('start');
 callStart.onclick = () => {
   event.preventDefault();
-  console.log('Clicked on start');
   instruct.classList.add('d-none');
   pageOne.classList.remove('d-none');
   quest1Btn.classList.remove('d-none');
@@ -40,7 +39,6 @@ callStart.onclick = () => {
 const quest1 = document.getElementById('question1');
 quest1.onclick = () => {
   event.preventDefault();
-  console.log('You answered question 1');
   pageOne.classList.add('d-none');
   quest1Btn.classList.add('d-none');
   pageTwo.classList.remove('d-none');
@@ -52,7 +50,6 @@ quest1.onclick = () => {
 const quest2 = document.getElementById('question2');
 quest2.onclick = () => {
   event.preventDefault();
-  console.log('You answered question 2');
   pageTwo.classList.add('d-none');
   quest2Btn.classList.add('d-none');
   pageThree.classList.remove('d-none');
@@ -64,7 +61,6 @@ quest2.onclick = () => {
 const quest3 = document.getElementById('question3');
 quest3.onclick = () => {
   event.preventDefault();
-  console.log('You answered question 3');
   pageThree.classList.add('d-none');
   quest3Btn.classList.add('d-none');
   pageFour.classList.remove('d-none');
@@ -76,7 +72,6 @@ quest3.onclick = () => {
 const quest4 = document.getElementById('question4');
 quest4.onclick = () => {
   event.preventDefault();
-  console.log('You answered question 4');
   pageFour.classList.add('d-none');
   quest4Btn.classList.add('d-none');
   pageFive.classList.remove('d-none');
@@ -88,7 +83,6 @@ quest4.onclick = () => {
 const quest5 = document.getElementById('question5');
 quest5.onclick = () => {
   event.preventDefault();
-  console.log('You answered question 5');
   pageFive.classList.add('d-none');
   quest5Btn.classList.add('d-none');
   pageEnd.classList.remove('d-none');
@@ -97,10 +91,21 @@ quest5.onclick = () => {
 
 const startAgain = document.getElementById('btnOver');
 startAgain.onclick = () => {
+  console.log('This is refreshing the page to start the game over.');
   location.reload();
 }
 
-
+const buttonSubmit = document.getElementById('form-submit');
+buttonSubmit.onclick = () => {
+  event.preventDefault();
+  const name = nameEl.value.trim();
+  if (!name && !email) {
+    alert("Please enter your intials!");
+    return;
+  }
+  localStorage.setItem('name', name);
+  localStorage.setItem('score', score);
+}
 
   // if(buttonStart.value === 'question5') {
   //   console.log('Enter your initials to store score');
