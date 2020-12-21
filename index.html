@@ -12,17 +12,20 @@
 </head>
 
 <body>
+  <!-- I'm using bootstrap for this project -->
   <div class="container m-5">
     <div class="row justify-content-center">
       <div class="col">
+        <!-- The high score and timer view will only display when it's called on -->
         <div id="highScore" class="d-none">High Scores</div>
         <div id='timer' class="d-none"></div>
-        <h2 id="textStatus"></h2>
+        <h2 id="textStatus" class="d-none">Question 1 out of 5</h2>
+        <!-- This will show the progress of the test -->
         <div class="progress">
           <div id="progressBar" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%"
             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
           </div>
-        </div> <!-- progress closing -->
+        </div>
 
         <form>
           <div class="card">
@@ -30,6 +33,7 @@
               <h5 class="card-title">Coding Quiz!</h5>
             </div>
             <div class="card-body">
+              <!-- This is the instructions panel -->
               <div id="instruction">
                 <div class="form-row quiz-container">
                   <div id="quiz">
@@ -39,13 +43,14 @@
                     <p>
                       Click on the 'Start the quiz!' button to start the quiz.
                     </p>
-                  </div> <!-- closing id=quiz div -->
-                </div> <!-- closing id=startIns div -->
+                  </div>
+                </div>
                 <div class="card-footer text-center" id="btnStart">
                   <button value="start" id="start" class="btn btn-outline-primary">Start the quiz!</button>
                 </div>
-              </div> <!-- closing id=instruction div -->
+              </div>
 
+              <!-- This is the first question panel -->
               <div id="page-1" class="d-none">
                 <h3>Who invented CSS?</h3>
                 <div class="form-check">
@@ -66,14 +71,15 @@
                   <p></p>
                 </div>
                 <div class="card-footer text-center d-none" id="question1">
-                  <button value="question1" id="" class="btn btn-outline-primary">Submit</button>
+                  <button value="question1" class="btn btn-outline-primary">Submit</button>
                 </div>
-              </div> <!-- closing id=page-1 -->
+              </div>
 
+              <!-- This is the second question panel -->
               <div id="page-2" class="d-none">
                 <h3>Which editor is the most used?</h3>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="answer2" id="answer2-1" value="answer2-1" checked>
+                  <input class="form-check-input" type="radio" name="answer2" id="answer2-1" value="answer2-1">
                   <label class="form-check-label" for="answer2-1">Visual Studio Code</label>
                 </div>
                 <div class="form-check">
@@ -92,8 +98,9 @@
                 <div class="card-footer text-center d-none" id="question2">
                   <button value="question2" class="btn btn-outline-primary">Submit</button>
                 </div>
-              </div> <!-- closing id=page-2 -->
+              </div>
 
+              <!-- This is the third question panel -->
               <div id="page-3" class="d-none">
                 <div>
                   <h3>Coding is fun!</h3>
@@ -107,11 +114,12 @@
                     <p></p>
                   </div>
                   <div class="card-footer text-center d-none" id="question3">
-                    <button value="question3" id="" class="btn btn-outline-primary">Submit</button>
+                    <button value="question3" class="btn btn-outline-primary">Submit</button>
                   </div>
                 </div>
-              </div> <!-- closing id=page-3 -->
+              </div>
 
+              <!-- This is the fourth question panel -->
               <div id="page-4" class="d-none">
                 <div>
                   <h3>What are the main building blocks of web development?</h3>
@@ -134,10 +142,11 @@
                   </div>
                 </div>
                 <div class="card-footer text-center d-none" id="question4">
-                  <button value="question4" id="" class="btn btn-outline-primary">Submit</button>
+                  <button value="question4" class="btn btn-outline-primary">Submit</button>
                 </div>
-              </div> <!-- closing id=page-4 -->
+              </div>
 
+              <!-- This is the fifth question panel -->
               <div id="page-5" class="d-none">
                 <div>
                   <h3>What is not true about template literals?</h3>
@@ -155,30 +164,30 @@
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="answer5" id="answer5-4" value="answer5-4">
-                    <label class="form-check-label" for="answer5-4">Template literals are enclosed by the brackets
-                      []</label>
+                    <label class="form-check-label" for="answer5-4">Template literals are enclosed within brackets []</label>
                     <p></p>
                   </div>
                   <div class="card-footer text-center d-none" id="question5">
-                    <button value="question5" id="" class="btn btn-outline-primary">Submit</button>
+                    <button value="question5" class="btn btn-outline-primary">Submit</button>
                   </div>
                 </div>
               </div>
-            </div>
+            
 
-            <div>
-              <div id="page-end" class="d-none">
-                <label for="initialsUser" class="initialsInput">Your initials</label>
-                <input type="text" id="initials" name="initials" class="form-control" />
-                <p></p>
-                <button value="next" id="form-submit" class="btn btn-outline-primary">Submit my score!</button>
-                <p></p>
+              <!-- This is the panel to enter initials to save high score -->
+              <div>
+                <div id="page-end" class="d-none">
+                  <label for="initialsUser" class="initialsInput">Your initials</label>
+                  <input type="text" id="initials" name="initials" class="form-control" />
+                  <p></p>
+                  <button value="next" id="form-submit" class="btn btn-outline-primary">Submit my score!</button>
+                  <p></p>
+                </div>
+                <div class="card-footer text-center d-none" id="btnOver">
+                  <button value="start" class="btn btn-outline-primary">Play Again!</button>
+                </div>
               </div>
-
-              <div class="card-footer text-center d-none" id="btnOver">
-                <button value="start" id="" class="btn btn-outline-primary">Play Again!</button>
-              </div>
-            </div>
+            </div>  
         </form>
       </div>
     </div>

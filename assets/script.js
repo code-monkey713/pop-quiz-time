@@ -1,3 +1,4 @@
+// variables and object for this project
 const instruct = document.getElementById('instruction');
 const pageOne = document.getElementById('page-1');
 const pageTwo = document.getElementById('page-2');
@@ -21,6 +22,7 @@ const quizAnswer = ['answer1-4', 'answer2-1', 'answer3-1', 'answer4-4', 'answer5
 const nameEl = document.getElementById('initials');
 const highScoreEl = document.getElementById('highScore');
 
+// function for setting the timer
 function setTime() {
   var timerInterval = setInterval(function() {
     timerEl.classList.remove('d-none');
@@ -31,8 +33,9 @@ function setTime() {
       clearInterval(timerInterval);
     }
   }, 1000);
-}
+};
 
+// code to run when the quiz starts
 const callStart = document.getElementById('start');
 callStart.onclick = () => {
   event.preventDefault();
@@ -42,8 +45,9 @@ callStart.onclick = () => {
   quest1Btn.classList.remove('d-none');
   formProgress.setAttribute('style', 'width:0%');
   formProgress.setAttribute('aria-valuenow', '0');
-}
+};
 
+// question 1 answered
 const quest1 = document.getElementById('question1');
 quest1.onclick = () => {
   event.preventDefault();
@@ -61,8 +65,9 @@ quest1.onclick = () => {
   quest2Btn.classList.remove('d-none');
   formProgress.setAttribute('style', 'width:20%');
   formProgress.setAttribute('aria-valuenow', '20');
-}
+};
 
+// question 2 answered
 const quest2 = document.getElementById('question2');
 quest2.onclick = () => {
   event.preventDefault();
@@ -80,8 +85,9 @@ quest2.onclick = () => {
   quest3Btn.classList.remove('d-none');
   formProgress.setAttribute('style', 'width:40%');
   formProgress.setAttribute('aria-valuenow', '40');
-}
+};
 
+// question 3 answered
 const quest3 = document.getElementById('question3');
 quest3.onclick = () => {
   event.preventDefault();
@@ -99,8 +105,9 @@ quest3.onclick = () => {
   quest4Btn.classList.remove('d-none');
   formProgress.setAttribute('style', 'width:60%');
   formProgress.setAttribute('aria-valuenow', '60');
-}
+};
 
+// question 4 answered
 const quest4 = document.getElementById('question4');
 quest4.onclick = () => {
   event.preventDefault();
@@ -118,8 +125,9 @@ quest4.onclick = () => {
   quest5Btn.classList.remove('d-none');
   formProgress.setAttribute('style', 'width:80%');
   formProgress.setAttribute('aria-valuenow', '80');
-}
+};
 
+// question 5 answered
 const quest5 = document.getElementById('question5');
 quest5.onclick = () => {
   event.preventDefault();
@@ -129,7 +137,7 @@ quest5.onclick = () => {
     score += 10;
   } else {
     secondsLeft -= 10;
-  }
+  };
   localStorage.setItem('answerto5', answerto5.value);
   pageFive.classList.add('d-none');
   quest5Btn.classList.add('d-none');
@@ -141,13 +149,15 @@ quest5.onclick = () => {
   formProgress.setAttribute('aria-valuenow', '100');
   timerEl.classList.add('d-none');
   clearInterval(secondsLeft);
-}
+};
 
+// restarting the quiz
 const startAgain = document.getElementById('btnOver');
 startAgain.onclick = () => {
   location.reload();
-}
+};
 
+// end user submit initials and score to be saved on local storage
 const buttonSubmit = document.getElementById('form-submit');
 buttonSubmit.onclick = () => {
   event.preventDefault();
@@ -155,7 +165,7 @@ buttonSubmit.onclick = () => {
   if (!name) {
     alert("Please enter your intials!");
     return;
-  }
+  };
   localStorage.setItem('name', name);
   localStorage.setItem('score', score);
-}
+};
