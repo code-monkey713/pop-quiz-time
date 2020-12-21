@@ -12,6 +12,7 @@ const quest3Btn = document.getElementById('question3');
 const quest4Btn = document.getElementById('question4');
 const quest5Btn = document.getElementById('question5');
 const startOver = document.getElementById('btnOver');
+const timerEl = document.getElementById('timer');
 let secondsLeft = 60;
 let score = 0;
 const formProgress = document.getElementById('progressBar');
@@ -19,11 +20,23 @@ const quizAnswer = ['answer1-4', 'answer2-1', 'answer3-1', 'answer4-4', 'answer5
 
 const nameEl = document.getElementById('initials');
 const highScoreEl = document.getElementById('highScore');
-// let highList = [];
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    timerEl.classList.remove('d-none');
+    secondsLeft--;
+    timerEl.textContent = 'Timer: ' + secondsLeft;
+    if(secondsLeft === 0) {
+      timerEl.classList.add('d-none');
+      clearInterval(timerInterval);
+    }
+  }, 1000);
+}
 
 const callStart = document.getElementById('start');
 callStart.onclick = () => {
   event.preventDefault();
+  setTime();
   instruct.classList.add('d-none');
   pageOne.classList.remove('d-none');
   quest1Btn.classList.remove('d-none');
@@ -38,10 +51,8 @@ quest1.onclick = () => {
   const choice1 = answerto1.value;
   if (quizAnswer.includes(choice1)) {
     score += 10;
-    console.log(score);
   } else {
     secondsLeft -= 10;
-    console.log(secondsLeft);
   }
   localStorage.setItem('answerto1', answerto1.value);
   pageOne.classList.add('d-none');
@@ -59,10 +70,8 @@ quest2.onclick = () => {
   const choice2 = answerto2.value;
   if (quizAnswer.includes(choice2)) {
     score += 10;
-    console.log(score);
   } else {
     secondsLeft -= 10;
-    console.log(secondsLeft);
   }
   localStorage.setItem('answerto2', answerto2.value);
   pageTwo.classList.add('d-none');
@@ -80,10 +89,8 @@ quest3.onclick = () => {
   const choice3 = answerto3.value;
   if (quizAnswer.includes(choice3)) {
     score += 10;
-    console.log(score);
   } else {
     secondsLeft -= 10;
-    console.log(secondsLeft);
   }
   localStorage.setItem('answerto3', answerto3.value);
   pageThree.classList.add('d-none');
@@ -101,10 +108,8 @@ quest4.onclick = () => {
   const choice4 = answerto4.value;
   if (quizAnswer.includes(choice4)) {
     score += 10;
-    console.log(score);
   } else {
     secondsLeft -= 10;
-    console.log(secondsLeft);
   }
   localStorage.setItem('answerto4', answerto4.value);
   pageFour.classList.add('d-none');
@@ -122,10 +127,8 @@ quest5.onclick = () => {
   const choice5 = answerto5.value;
   if (quizAnswer.includes(choice5)) {
     score += 10;
-    console.log(score);
   } else {
     secondsLeft -= 10;
-    console.log(secondsLeft);
   }
   localStorage.setItem('answerto5', answerto5.value);
   pageFive.classList.add('d-none');
@@ -136,6 +139,8 @@ quest5.onclick = () => {
   scoreTable.classList.remove('d-none');
   formProgress.setAttribute('style', 'width:100%');
   formProgress.setAttribute('aria-valuenow', '100');
+  timerEl.classList.add('d-none');
+  clearInterval(secondsLeft);
 }
 
 const startAgain = document.getElementById('btnOver');
