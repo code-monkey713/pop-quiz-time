@@ -14,16 +14,11 @@ const quest5Btn = document.getElementById('question5');
 const startOver = document.getElementById('btnOver');
 let score = 0;
 const formProgress = document.getElementById('progressBar');
+const quizAnswer = ['answer1-3', 'answer2-1', 'answer3-1', 'answer4-4', 'answer5-4'];
 
 const nameEl = document.getElementById('initials');
 const highScoreEl = document.getElementById('highScore');
 // let highList = [];
-// const animals = document.querySelectorAll('[name=animal]');
-// const favoriteAnimals = ['cat', 'dog', 'meerkat', 'answer1-4'];
-// const fave = document.getElementById('highScore');
-// if (favoriteAnimals.includes(fave.textContent.toLowerCase())) {
-//   console.log('The favorite animal is allowed');
-// }
 
 const callStart = document.getElementById('start');
 callStart.onclick = () => {
@@ -39,6 +34,9 @@ callStart.onclick = () => {
 const quest1 = document.getElementById('question1');
 quest1.onclick = () => {
   event.preventDefault();
+  const answerto1 = document.querySelector("[name=answer1]:checked");
+  localStorage.setItem('answerto1', answerto1.value);
+  
   pageOne.classList.add('d-none');
   quest1Btn.classList.add('d-none');
   pageTwo.classList.remove('d-none');
@@ -50,6 +48,9 @@ quest1.onclick = () => {
 const quest2 = document.getElementById('question2');
 quest2.onclick = () => {
   event.preventDefault();
+  const answerto2 = document.querySelector("[name=answer2]:checked");
+  localStorage.setItem('answerto2', answerto2.value);
+
   pageTwo.classList.add('d-none');
   quest2Btn.classList.add('d-none');
   pageThree.classList.remove('d-none');
@@ -61,6 +62,9 @@ quest2.onclick = () => {
 const quest3 = document.getElementById('question3');
 quest3.onclick = () => {
   event.preventDefault();
+  const answerto3 = document.querySelector("[name=answer3]:checked");
+  localStorage.setItem('answerto3', answerto3.value);
+
   pageThree.classList.add('d-none');
   quest3Btn.classList.add('d-none');
   pageFour.classList.remove('d-none');
@@ -72,6 +76,9 @@ quest3.onclick = () => {
 const quest4 = document.getElementById('question4');
 quest4.onclick = () => {
   event.preventDefault();
+  const answerto4 = document.querySelector("[name=answer4]:checked");
+  localStorage.setItem('answerto4', answerto4.value);
+
   pageFour.classList.add('d-none');
   quest4Btn.classList.add('d-none');
   pageFive.classList.remove('d-none');
@@ -80,13 +87,19 @@ quest4.onclick = () => {
   formProgress.setAttribute('aria-valuenow', '100');
 }
 
+
 const quest5 = document.getElementById('question5');
 quest5.onclick = () => {
   event.preventDefault();
+  const answerto5 = document.querySelector("[name=answer5]:checked");
+  localStorage.setItem('answerto5', answerto5.value);
+  
   pageFive.classList.add('d-none');
   quest5Btn.classList.add('d-none');
   pageEnd.classList.remove('d-none');
   startOver.classList.remove('d-none');
+  const scoreTable = document.getElementById('highScore');
+  scoreTable.classList.remove('d-none');
 }
 
 const startAgain = document.getElementById('btnOver');
@@ -99,69 +112,13 @@ const buttonSubmit = document.getElementById('form-submit');
 buttonSubmit.onclick = () => {
   event.preventDefault();
   const name = nameEl.value.trim();
-  if (!name && !email) {
+  if (!name) {
     alert("Please enter your intials!");
     return;
   }
   localStorage.setItem('name', name);
   localStorage.setItem('score', score);
 }
-
-  // if(buttonStart.value === 'question5') {
-  //   console.log('Enter your initials to store score');
-  //   pageFive.classList.add('d-none');
-  //   pageEnd.classList.remove('d-none');
-  //   highScoreEl.classList.remove('d-none');
-  //   buttonStart.value = 'startover';
-  //   buttonStart.textContent = 'Start over!';
-  // }
-  // if (buttonStart.value === 'next') {
-  //   const name = nameEl.value.trim();
-  //   const email = emailEl.value.trim();
-  //   if (!name && !email) {
-  //     alert("Please enter name and email!");
-  //     return;
-  //   }
-  // need to add function for starting the timer and call it here
-  
-  // need to call keepScore function after the last question is answered 
-
-// function for storing end user initials and high score
-// function keepScore() {
-//   const buttonSubmit = document.getElementById('form-submit');
-//   buttonSubmit.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     if (buttonSubmit.value === 'next') {
-//       const name = nameEl.value.trim();
-//       const email = emailEl.value.trim();
-//       if (!name && !email) {
-//         alert("Please enter name and email!");
-//         return;
-//       }
-
-//       localStorage.setItem('name', name);
-//       localStorage.setItem('score', score);
-//     }});
-// const fave = document.getElementById('favorite-animal');
-// if (favoriteAnimals.includes(fave.textContent.toLowerCase())) {
-//   console.log('The favorite animal is allowed');
-// }
-
-// function for storing end user initials and high score
-// function keepScore() {
-//   const buttonSubmit = document.getElementById('form-submit');
-//   buttonSubmit.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     if (buttonSubmit.value === 'next') {
-//       const name = nameEl.value.trim();
-//       const email = emailEl.value.trim();
-//       if (!name && !email) {
-//         alert("Please enter name and email!");
-//         return;
-//       }
-//       localStorage.setItem('name', name);
-//       localStorage.setItem('score', score);
-//     }}};
 
 //   } else if (buttonSubmit.value === 'submit') {
 //     const favoriteAnimal = document.querySelector("[name=animal]:checked");
@@ -171,7 +128,16 @@ buttonSubmit.onclick = () => {
 //       <h2>Thank you, ${localStorage.getItem('name')}</h2>
 //       <p class="lead">We will email you at ${localStorage.getItem('email')} pictures of your favorite animal, the ${localStorage.getItem('favoriteAnimal')}
 //       </p>`;
-//   } else {
-//     location.reload();
-//   }
-// })
+
+// need to add function for starting the timer and call it here
+// const fave = document.getElementById('favorite-animal');
+// if (favoriteAnimals.includes(fave.textContent.toLowerCase())) {
+//   console.log('The favorite animal is allowed');
+// }
+
+// const animals = document.querySelectorAll('[name=animal]');
+// const favoriteAnimals = ['cat', 'dog', 'meerkat', 'answer1-4'];
+// const fave = document.getElementById('highScore');
+// if (favoriteAnimals.includes(fave.textContent.toLowerCase())) {
+//   console.log('The favorite animal is allowed');
+// }
