@@ -15,6 +15,7 @@ const quest5Btn = document.getElementById('question5');
 const startOver = document.getElementById('btnOver');
 const timerEl = document.getElementById('timer');
 let secondsLeft = 60;
+let interval;
 let score = 0;
 const formProgress = document.getElementById('progressBar');
 const quizAnswer = ['answer1-4', 'answer2-1', 'answer3-1', 'answer4-4', 'answer5-4'];
@@ -23,17 +24,25 @@ const nameEl = document.getElementById('initials');
 const highScoreEl = document.getElementById('highScore');
 
 // function for setting the timer
+
 function setTime() {
-  var timerInterval = setInterval(function() {
+  interval = setInterval(function() {
     timerEl.classList.remove('d-none');
     secondsLeft--;
     timerEl.textContent = 'Timer: ' + secondsLeft;
     if(secondsLeft === 0) {
-      timerEl.classList.add('d-none');
-      clearInterval(timerInterval);
+      clearInterval(interval);
+      stopTimer();
     }
   }, 1000);
 };
+
+function stopTimer() {
+  // secondsLeft = 1;
+  // clearInterval(timerInterval);
+  timerEl.textContent = ' ';
+  timerEl.classList.add('d-none');
+}
 
 // code to run when the quiz starts
 const callStart = document.getElementById('start');
@@ -147,8 +156,12 @@ quest5.onclick = () => {
   scoreTable.classList.remove('d-none');
   formProgress.setAttribute('style', 'width:100%');
   formProgress.setAttribute('aria-valuenow', '100');
-  timerEl.classList.add('d-none');
-  clearInterval(secondsLeft);
+  // clearInterval(timerInterval);
+  secondsLeft = 0;
+  // setTime();
+  stopTimer();
+  // timerEl.classList.add('d-none');
+  
 };
 
 // restarting the quiz
