@@ -30,7 +30,7 @@ For this project, you can open the app on the browser to view the content. There
 
 Please follow the link to go to the code quiz app. Screenshot provided below.
 
-![screenshot](assets/screenshot.png)
+![screenshot](images/screenshot.png)
 
 ## Credits
 
